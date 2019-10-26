@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	package="de.binarynoise.appdate"
+	>
+	
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+	<!-- <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> -->
+	<!-- <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> -->
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+	<uses-permission
+		android:name="android.permission.BIND_JOB_SERVICE"
+		tools:ignore="ProtectedPermissions"
+		/>
+	
+	<uses-permission android:name="android.permission.INTERNET" />
+	
+	<application
+		android:allowBackup="true"
+		android:extractNativeLibs="false"
+		android:fullBackupContent="true"
+		android:icon="@mipmap/ic_launcher"
+		android:label="@string/app_name"
+		android:roundIcon="@mipmap/ic_launcher_round"
+		android:supportsRtl="true"
+		android:theme="@style/AppTheme"
+		tools:ignore="GoogleAppIndexingWarning"
+		>
+		
+		<activity android:name=".NavHostActivity" >
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+		<activity android:name=".InstallRequestActivity" />
+		
+		<receiver android:name=".BootCompletedReceiver">
+			<intent-filter>
+				<action android:name="android.intent.action.BOOT_COMPLETED" />
+			</intent-filter>
+		</receiver>
+		<receiver android:name=".InstallReceiver" />
+		
+		<service
+			android:name=".UpdateSchedulerService"
+			android:permission="android.permission.BIND_JOB_SERVICE"
+			/>
+	</application>
+</manifest>

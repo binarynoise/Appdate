@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_height="match_parent"
+	android:layout_width="match_parent"
+	android:orientation="vertical"
+	tools:context=".AddAppFragment"
+	>
+	
+	<androidx.core.widget.NestedScrollView
+		android:layout_height="0dp"
+		android:layout_weight="1"
+		android:layout_width="match_parent"
+		app:layout_constraintBottom_toTopOf="@id/addApp_v_tableRow"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		>
+		
+		<LinearLayout
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:orientation="vertical"
+			android:padding="8dp"
+			>
+			
+			<androidx.appcompat.widget.AppCompatTextView
+				android:id="@+id/addApp_descriptor"
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent"
+				android:text="@string/add_app_description"
+				/>
+			
+			<com.google.android.material.textfield.TextInputLayout
+				android:id="@+id/addApp_name_float"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				android:layout_width="match_parent"
+				app:endIconMode="clear_text"
+				>
+				
+				<com.google.android.material.textfield.TextInputEditText
+					android:id="@+id/addApp_name"
+					android:hint="@string/name"
+					android:inputType="text"
+					android:layout_height="wrap_content"
+					android:layout_marginEnd="8dp"
+					android:layout_marginStart="8dp"
+					android:layout_marginTop="8dp"
+					android:layout_width="match_parent"
+					android:singleLine="true"
+					/>
+			</com.google.android.material.textfield.TextInputLayout>
+			
+			<com.google.android.material.textfield.TextInputLayout
+				android:id="@+id/addApp_url_float"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				android:layout_width="match_parent"
+				app:endIconMode="clear_text"
+				>
+				
+				<com.google.android.material.textfield.TextInputEditText
+					android:id="@+id/addApp_url"
+					android:hint="@string/updateUrl"
+					android:inputType="textUri|textWebEditText"
+					android:layout_height="wrap_content"
+					android:layout_marginEnd="8dp"
+					android:layout_marginStart="8dp"
+					android:layout_marginTop="8dp"
+					android:layout_width="match_parent"
+					/>
+			</com.google.android.material.textfield.TextInputLayout>
+			
+			<androidx.appcompat.widget.AppCompatCheckBox
+				android:id="@+id/addApp_appInstalledCheckbox"
+				android:clickable="true"
+				android:focusable="true"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				android:layout_width="match_parent"
+				android:text="@string/app_is_already_installed"
+				/>
+			
+			<LinearLayout
+				android:id="@+id/addApp_packageDetailsContainer"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				android:layout_width="match_parent"
+				android:orientation="vertical"
+				android:visibility="gone"
+				tools:visibility="visible"
+				>
+				
+				<TableRow
+					android:layout_height="wrap_content"
+					android:layout_width="match_parent"
+					>
+					
+					<androidx.appcompat.widget.AppCompatTextView
+						android:layout_height="wrap_content"
+						android:layout_margin="8dp"
+						android:layout_width="wrap_content"
+						android:text="@string/version"
+						/>
+					
+					<androidx.appcompat.widget.AppCompatTextView
+						android:id="@+id/addApp_installed_version"
+						android:layout_height="wrap_content"
+						android:layout_margin="8dp"
+						android:layout_width="wrap_content"
+						tools:text="10.5.2"
+						/>
+				</TableRow>
+				
+				<androidx.appcompat.widget.AppCompatSpinner
+					android:id="@+id/addApp_packageNameSpinner"
+					android:layout_height="wrap_content"
+					android:layout_width="match_parent"
+					tools:listitem="@layout/layout_add_app_package_name_spinner"
+					/>
+			</LinearLayout>
+		</LinearLayout>
+	</androidx.core.widget.NestedScrollView>
+	
+	<TableRow
+		android:id="@+id/addApp_v_tableRow"
+		style="?android:attr/buttonBarStyle"
+		android:layout_gravity="bottom"
+		android:layout_height="wrap_content"
+		android:layout_margin="8dp"
+		android:layout_width="match_parent"
+		android:orientation="horizontal"
+		>
+		
+		<androidx.appcompat.widget.AppCompatButton
+			android:id="@+id/addApp_addButton"
+			style="?android:attr/buttonBarButtonStyle"
+			android:enabled="false"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:layout_width="wrap_content"
+			android:text="@string/add_app"
+			/>
+		
+		<androidx.constraintlayout.widget.ConstraintLayout
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:layout_width="wrap_content"
+			>
+			
+			<ProgressBar
+				android:id="@+id/addApp_testButton_progressBar"
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:visibility="invisible"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				/>
+			
+			<androidx.appcompat.widget.AppCompatButton
+				android:id="@+id/addApp_testButton"
+				style="?android:attr/buttonBarButtonStyle"
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="@string/test_config"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				/>
+		</androidx.constraintlayout.widget.ConstraintLayout>
+	</TableRow>
+
+</LinearLayout>

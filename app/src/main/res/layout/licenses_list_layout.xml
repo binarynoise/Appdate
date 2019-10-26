@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_height="wrap_content"
+	android:layout_width="fill_parent"
+	android:orientation="vertical"
+	android:padding="12dp"
+	>
+	
+	<TextView
+		android:id="@+id/licenses_list_title"
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:textSize="24sp"
+		android:textStyle="bold"
+		tools:text="License Title"
+		/>
+	
+	<TextView
+		android:id="@+id/licenses_list_url"
+		android:autoLink="web"
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:linksClickable="true"
+		android:singleLine="true"
+		android:textColor="@color/colorAccent"
+		tools:text="Project URL"
+		/>
+	
+	<HorizontalScrollView
+		android:layout_height="match_parent"
+		android:layout_width="match_parent"
+		>
+		
+		<TextView
+			android:id="@+id/licenses_list_license"
+			android:fontFamily="sans-serif-condensed"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:textSize="12sp"
+			android:visibility="gone"
+			tools:text="License Text\nwith multiple\nlines"
+			tools:visibility="visible"
+			/>
+	</HorizontalScrollView>
+
+</LinearLayout>

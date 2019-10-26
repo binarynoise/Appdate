@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/app_detail_fragment"
+	android:layout_height="match_parent"
+	android:layout_width="match_parent"
+	tools:context=".NavHostActivity"
+	tools:ignore="ContentDescription,HardcodedText,SelectableText,RtlSymmetry"
+	>
+	
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:orientation="vertical"
+		>
+		
+		<LinearLayout
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			>
+			
+			<ImageView
+				android:id="@+id/icon"
+				android:adjustViewBounds="true"
+				android:layout_height="48dp"
+				android:layout_margin="8dp"
+				android:layout_width="48dp"
+				app:srcCompat="@android:color/transparent"
+				tools:srcCompat="@tools:sample/avatars"
+				/>
+			
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="8dp"
+				android:layout_marginEnd="8dp"
+				android:layout_marginTop="8dp"
+				android:layout_weight="1"
+				android:layout_width="0dp"
+				android:orientation="vertical"
+				>
+				
+				<TextView
+					android:id="@+id/describtion"
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="3dp"
+					android:layout_width="match_parent"
+					android:text="@string/app_detail_description"
+					/>
+				
+				<TableLayout
+					android:id="@+id/tableLayout"
+					android:layout_height="wrap_content"
+					android:layout_width="match_parent"
+					>
+					
+					<TableRow
+						android:layout_height="match_parent"
+						android:layout_marginBottom="3dp"
+						android:layout_width="match_parent"
+						>
+						
+						<TextView
+							android:layout_height="wrap_content"
+							android:layout_width="wrap_content"
+							android:text="@string/name"
+							/>
+						
+						<TextView
+							android:id="@+id/name"
+							android:layout_height="wrap_content"
+							android:layout_width="wrap_content"
+							android:paddingStart="8dp"
+							android:text="Appdate"
+							/>
+					</TableRow>
+					
+					<TableRow
+						android:layout_height="match_parent"
+						android:layout_marginBottom="3dp"
+						android:layout_width="match_parent"
+						>
+						
+						<TextView
+							android:layout_height="wrap_content"
+							android:layout_width="wrap_content"
+							android:text="@string/installed_version"
+							/>
+						
+						<TextView
+							android:id="@+id/installedVersion"
+							android:layout_height="wrap_content"
+							android:layout_width="wrap_content"
+							android:paddingStart="8dp"
+							android:text="TextView"
+							/>
+					</TableRow>
+					
+					<TableRow
+						android:layout_height="match_parent"
+						android:layout_marginBottom="3dp"
+						android:layout_width="match_parent"
+						>
+						
+						<TextView
+							android:layout_height="wrap_content"
+							android:layout_width="wrap_content"
+							android:text="@string/available_version"
+							/>
+						
+						<TextView
+							android:id="@+id/availableVersion"
+							android:layout_height="wrap_content"
+							android:layout_width="wrap_content"
+							android:paddingStart="8dp"
+							android:text="TextView"
+							/>
+					</TableRow>
+				</TableLayout>
+			
+			</LinearLayout>
+		</LinearLayout>
+		
+		<TableRow
+			android:id="@+id/buttonRow"
+			android:layout_height="wrap_content"
+			android:layout_margin="8dp"
+			android:layout_width="match_parent"
+			>
+			
+			<androidx.constraintlayout.widget.ConstraintLayout
+				android:id="@+id/updateButton_container"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:layout_width="wrap_content"
+				>
+				
+				<ImageButton
+					android:id="@+id/updateButton"
+					style="?attr/buttonBarButtonStyle"
+					android:layout_height="24dp"
+					android:layout_width="24dp"
+					android:src="@drawable/ic_update_white_24dp"
+					android:tint="@color/foreground"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					tools:ignore="ContentDescription"
+					/>
+				
+				<ProgressBar
+					android:id="@+id/updateButton_progressBar"
+					android:indeterminateOnly="true"
+					android:layout_height="24dp"
+					android:layout_width="24dp"
+					android:visibility="invisible"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					/>
+			</androidx.constraintlayout.widget.ConstraintLayout>
+			
+			<androidx.constraintlayout.widget.ConstraintLayout
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:layout_width="wrap_content"
+				>
+				
+				<ImageButton
+					android:id="@+id/downloadButton"
+					style="?attr/buttonBarButtonStyle"
+					android:layout_height="24dp"
+					android:layout_width="24dp"
+					android:src="@drawable/ic_file_download_white_24dp"
+					android:tint="@color/foreground"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					tools:ignore="ContentDescription"
+					/>
+				
+				<me.zhanghai.android.materialprogressbar.MaterialProgressBar
+					android:id="@+id/downloadButton_progressBar"
+					style="@style/Widget.MaterialProgressBar.ProgressBar"
+					android:layout_height="24dp"
+					android:layout_width="24dp"
+					android:visibility="invisible"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					app:mpb_setBothDrawables="true"
+					/>
+			</androidx.constraintlayout.widget.ConstraintLayout>
+			
+			<androidx.constraintlayout.widget.ConstraintLayout
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:layout_width="wrap_content"
+				>
+				
+				<ImageButton
+					android:id="@+id/installButton"
+					style="?attr/buttonBarButtonStyle"
+					android:layout_height="24dp"
+					android:layout_width="24dp"
+					android:src="@drawable/ic_install_update_white_24dp"
+					android:tint="@color/foreground"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					tools:ignore="ContentDescription"
+					/>
+				
+				<ProgressBar
+					android:id="@+id/installButton_progressBar"
+					android:indeterminateOnly="true"
+					android:layout_height="24dp"
+					android:layout_width="24dp"
+					android:visibility="invisible"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					/>
+			</androidx.constraintlayout.widget.ConstraintLayout>
+			
+			<androidx.constraintlayout.widget.ConstraintLayout
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:layout_width="wrap_content"
+				>
+				
+				<ImageButton
+					android:id="@+id/deleteButton"
+					style="?attr/buttonBarButtonStyle"
+					android:layout_height="24dp"
+					android:layout_width="24dp"
+					android:src="@drawable/ic_delete_white_24dp"
+					android:tint="@color/foreground"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					tools:ignore="ContentDescription"
+					/>
+				
+				<ProgressBar
+					android:id="@+id/deleteButton_progressBar"
+					android:indeterminateOnly="true"
+					android:layout_height="24dp"
+					android:layout_width="24dp"
+					android:visibility="invisible"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					/>
+			</androidx.constraintlayout.widget.ConstraintLayout>
+		</TableRow>
+		
+		<HorizontalScrollView
+			android:id="@+id/horizontalScrollView"
+			android:layout_height="match_parent"
+			android:layout_width="match_parent"
+			>
+			
+			<TextView
+				android:id="@+id/debugView"
+				android:layout_height="wrap_content"
+				android:layout_margin="8dp"
+				android:layout_width="wrap_content"
+				android:text="{\n\tJSON\n}"
+				/>
+		</HorizontalScrollView>
+	</LinearLayout>
+</ScrollView>
+
