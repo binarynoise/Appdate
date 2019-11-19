@@ -108,7 +108,7 @@ object Installer {
 	@Throws(IOException::class)
 	private fun installRoot(apkFile: File) {
 		val result =
-			Shell.su("cat ${apkFile.absolutePath} | pm install -r -i ${BuildConfig.APPLICATION_ID} -S ${apkFile.length()} --user current")
+			Shell.su("cat \"${apkFile.absolutePath}\" | pm install -r -i ${BuildConfig.APPLICATION_ID} -S ${apkFile.length()} --user current")
 				.exec()
 		
 		val exitCode = result.code
