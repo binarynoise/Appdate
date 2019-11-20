@@ -47,7 +47,7 @@ class App {
 	val hasUpdates: Boolean
 		get() {
 			val haveUpdate = installedVersion.isLowerThan(updateVersion?.withClearedSuffixAndBuild() ?: Semver("0.0.0"))
-			if (!haveUpdate && !BuildConfig.DEBUG) cacheFile = null
+			if (!haveUpdate) cacheFile = null
 			return haveUpdate
 		}
 	var installedName: String = "unknown"

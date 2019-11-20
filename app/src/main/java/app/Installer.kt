@@ -14,6 +14,8 @@ import android.os.Bundle
 import android.provider.Settings
 import androidx.core.os.bundleOf
 import com.topjohnwu.superuser.Shell
+import de.binarynoise.appdate.Log.Level.Info
+import de.binarynoise.appdate.Log.Place
 import kotlinx.coroutines.*
 import kotlinx.coroutines.Dispatchers.Main
 import net.erdfelt.android.apk.AndroidApk
@@ -39,6 +41,8 @@ object Installer {
 		} else {
 			installNonRoot(apkfile, app.getId())
 		}
+		log.log(getString(R.string.install_success_s, app.installedName), Info, *Place.all)
+		app.cacheFile = null
 	}
 	
 	@Throws(IOException::class)
