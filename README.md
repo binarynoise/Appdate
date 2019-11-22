@@ -1,6 +1,11 @@
 # Appdate
 
 [![Build Status](https://travis-ci.com/binarynoise/Appdate.svg?branch=master)](https://travis-ci.com/binarynoise/Appdate)
+[![GitHub stars](https://img.shields.io/github/stars/binarynoise/Appdate.svg?style=social&maxAge=2592000)](https://GitHub.com/binarynoise/Appdate/stargazers)
+[![GitHub releases](https://img.shields.io/github/release/binarynoise/Appdate.svg)](https://GitHub.com/binarynoise/Appdate/releases/latest/)
+[![GitHub issues](https://img.shields.io/github/issues/binarynoise/Appdate.svg)](https://GitHub.com/binarynoise/Appdate/issues/)
+
+[![forthebadge](https://forthebadge.com/images/badges/built-for-android.svg)](https://forthebadge.com)
 
 Appdate looks for updates of open-source apps by scanning the website where the updates are released.
 
