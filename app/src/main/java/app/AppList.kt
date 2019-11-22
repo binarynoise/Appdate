@@ -105,7 +105,7 @@ object AppList {
 		synchronized(appList) {
 			if (appList.size() != 0) return
 			
-			val list: Array<App>? = fromJson(sharedPreferences.getString(SHARED_PREFS_APP_LIST_LABEL, null))
+			val list: Array<App>? = fromJson(sharedPreferences.getString(SHARED_PREFS_APP_LIST_LABEL, "[]"))
 			runBlocking {
 				withContext(Main) {
 					appList.addAll(list?.asList() ?: emptyList())

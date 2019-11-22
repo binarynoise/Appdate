@@ -96,7 +96,9 @@ class App {
 		}
 	var useVersionNumberInsteadOfName: Boolean = false
 	
+	@JsonIgnore
 	private var changeListenerList: MutableMap<Lifecycle, () -> Unit> = ConcurrentHashMap(2)
+	
 	fun addChangeListener(lifecycle: Lifecycle, listener: () -> Unit) {
 		val observer = object : LifecycleObserver {
 			@OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
@@ -108,7 +110,9 @@ class App {
 		changeListenerList[lifecycle] = listener
 	}
 	
+	@JsonIgnore
 	private var downloadProgressListenerList: MutableMap<Lifecycle, (Int, Int) -> Unit> = ConcurrentHashMap(2)
+	
 	fun addDownloadProgressListener(lifecycle: Lifecycle, listener: (Int, Int) -> Unit) {
 		val observer = object : LifecycleObserver {
 			@OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
@@ -161,18 +165,19 @@ class App {
 		}
 	}
 	
-	private val packageManager get() = globalContext.packageManager
+	private val packageManager
+		@JsonIgnore
+		get() = globalContext.packageManager
 	
-	private val packageInfo get() = packageManager.getPackageInfo(packageName ?: "", 0)
+	private val packageInfo
+		@JsonIgnore
+		get() = packageManager.getPackageInfo(packageName ?: "", 0)
 	
 	@JsonIgnore
-	fun getIcon(): Drawable {
-		
-		return try {
-			packageInfo.applicationInfo.loadIcon(packageManager)
-		} catch (e: PackageManager.NameNotFoundException) {
-			ColorDrawable(Color.TRANSPARENT)
-		}
+	fun getIcon(): Drawable = try {
+		packageInfo.applicationInfo.loadIcon(packageManager)
+	} catch (e: PackageManager.NameNotFoundException) {
+		ColorDrawable(Color.TRANSPARENT)
 	}
 	
 	fun getId(): Int = updateUrl.hashCode()

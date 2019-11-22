@@ -2,7 +2,7 @@ package de.binarynoise.appdate
 
 import java.io.File
 
-data class CacheFile(val path: String, var fileSize: Int = 0) {
+class CacheFile(val path: String, var fileSize: Int = 0) {
 	fun delete() {
 		File(path).delete()
 		fileSize = 0

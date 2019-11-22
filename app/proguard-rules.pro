@@ -5,26 +5,10 @@
 # For more details, see
 #   http://developer.android.com/guide/developing/tools/proguard.html
 
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
-
-# Uncomment this to preserve the line number information for
-# debugging stack traces.
-#-keepattributes SourceFile,LineNumberTable
-
-# If you keep the line number information, uncomment this to
-# hide the original source file name.
-#-renamesourcefileattribute SourceFile
-
 -android
 -dontpreverify
--allowaccessmodification
 -optimizations !code/simplification/arithmetic
--keepattributes SourceFile,LineNumberTable,Exception,*Annotation*
+-keepattributes SourceFile, LineNumberTable, Exception, *Annotation*, InnerClasses, EnclosingMethod, Signature
 -dontobfuscate
 
 -keepclassmembers,allowoptimization enum * {
@@ -36,21 +20,18 @@
     protected Object[][] getContents();
 }
 
--keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
-    public static final *** NULL;
-}
-
 -keepclassmembers class * {
     @com.google.api.client.util.Key *;
 }
 
-# kotlin serialization
--keepattributes *Annotation*, InnerClasses
--dontnote kotlinx.serialization.SerializationKt
--keep,includedescriptorclasses class de.binarynoise.appdate.**$$serializer { *; } # <-- change package name to your app's
 -keepclassmembers class de.binarynoise.appdate.** { # <-- change package name to your app's
     *** Companion;
 }
--keepclasseswithmembers class de.binarynoise.appdate.** { # <-- change package name to your app's
-    kotlinx.serialization.KSerializer serializer(...);
+-keep class de.binarynoise.appdate.classes.json.***
+
+-keep class kotlin.Metadata { *; }
+-keep class kotlin.reflect.jvm.internal.impl.load.java.*
+
+-keep class * {
+	@com.fasterxml.jackson.annotation.* *;
 }
