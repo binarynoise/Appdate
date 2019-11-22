@@ -2,8 +2,10 @@ package de.binarynoise.appdate
 
 import android.os.Bundle
 import androidx.navigation.fragment.findNavController
-//import androidx.navigation.fragment.findNavController
-import androidx.preference.*
+import androidx.preference.Preference
+import androidx.preference.PreferenceCategory
+import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.PreferenceGroup
 
 class PreferencesFragment : PreferenceFragmentCompat() {
 	

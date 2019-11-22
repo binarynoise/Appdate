@@ -20,9 +20,8 @@ object Notifier {
 		// TODO register groups
 	}
 	
-	fun notification(
-		id: Int, notificationGroup: String, icon: Drawable, title: CharSequence, text: CharSequence, action: PendingIntent
-	) {
+	fun notification(id: Int, notificationGroup: String, icon: Drawable, title: CharSequence, text: CharSequence,
+			action: PendingIntent) {
 		val context = globalContext
 		
 		val builder: Notification.Builder = if (SDK_INT >= O) Notification.Builder(context, notificationGroup)
@@ -53,10 +52,7 @@ object Notifier {
 	private fun registerGroup(notificationGroup: String) {
 		if (SDK_INT < O) return
 		notificationManager.createNotificationChannel(
-			NotificationChannel(
-				notificationGroup, notificationGroup, NotificationManager.IMPORTANCE_LOW
-			)
-		)
+				NotificationChannel(notificationGroup, notificationGroup, NotificationManager.IMPORTANCE_LOW))
 	}
 	
 	object Groups {
@@ -67,9 +63,8 @@ object Notifier {
 private fun Drawable.toBitmap(): Bitmap {
 	if (this is BitmapDrawable && bitmap != null) return bitmap
 	
-	val bitmap: Bitmap = if (intrinsicWidth <= 0 || intrinsicHeight <= 0) Bitmap.createBitmap(
-		1, 1, Bitmap.Config.ARGB_8888
-	) // Single color bitmap will be created of 1x1 pixel
+	val bitmap: Bitmap = if (intrinsicWidth <= 0 || intrinsicHeight <= 0)
+		Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888) // Single color bitmap will be created of 1x1 pixel
 	else Bitmap.createBitmap(intrinsicWidth, intrinsicHeight, Bitmap.Config.ARGB_8888)
 	
 	val canvas = Canvas(bitmap)

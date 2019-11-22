@@ -35,7 +35,7 @@ object Downloader {
 				
 				do {
 					val count: Int = input.read(buffer)
-					if(count >= 0) output.write(buffer, 0, count)
+					if (count >= 0) output.write(buffer, 0, count)
 					progress += count
 					progressCallback(progress, size)
 				} while (count >= 0)

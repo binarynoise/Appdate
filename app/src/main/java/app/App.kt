@@ -57,14 +57,13 @@ class App {
 			if (changed) notifyUiListeners()
 		}
 	val installedVersion: Semver
-		get() {
-			try {
-				@Suppress("DEPRECATION") return Semver(
-					if (useVersionNumberInsteadOfName) packageInfo.versionCode.toString() else packageInfo.versionName, LOOSE
-				)
-			} catch (e: PackageManager.NameNotFoundException) {
-				return Semver("0.0.0")
-			}
+		get() = try {
+			@Suppress("DEPRECATION")
+			val version = if (useVersionNumberInsteadOfName) packageInfo.versionCode.toString()
+			else packageInfo.versionName
+			Semver(version, LOOSE)
+		} catch (e: PackageManager.NameNotFoundException) {
+			Semver("0", LOOSE)
 		}
 	@JsonIgnore
 	var installing: Boolean = false
@@ -160,8 +159,7 @@ class App {
 			}
 		} finally {
 			downloading = false
-			if (!cacheFile.isValid())
-				cacheFile = null
+			if (!cacheFile.isValid()) cacheFile = null
 		}
 	}
 	
@@ -200,10 +198,9 @@ class App {
 			
 			val title = getString(R.string.update_for_s, installedName)
 			
-			val text: String = if (isInstalled()) getString(R.string.found_update_sss,
-				installedName, installedVersion, updateVersion
-			)
-			else getString(R.string.can_install_app_ss, installedName, updateVersion)
+			val text: String =
+				if (isInstalled()) getString(R.string.found_update_sss, installedName, installedVersion, updateVersion)
+				else getString(R.string.can_install_app_ss, installedName, updateVersion)
 			
 			val drawable = getIcon()
 			

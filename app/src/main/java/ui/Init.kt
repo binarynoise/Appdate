@@ -6,14 +6,11 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import de.binarynoise.appdate.Constants.APP_FILTER_PATTERN
 import de.binarynoise.appdate.Constants.JOB_ID
 import de.binarynoise.appdate.Log.Level.Warn
 import de.binarynoise.appdate.Log.Place.Logcat
 import de.binarynoise.appdate.Log.Place.Toast
-import kotlinx.coroutines.*
 import java.util.concurrent.TimeUnit
 
 object Init {
@@ -33,9 +30,8 @@ object Init {
 			setPersisted(false)
 			
 			val duration = 4L // TODO
-			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) setPeriodic(
-				TimeUnit.HOURS.toMillis(duration), TimeUnit.MINUTES.toMillis(duration * 10)
-			)
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) setPeriodic(TimeUnit.HOURS.toMillis(duration),
+					TimeUnit.MINUTES.toMillis(duration * 10))
 			else setPeriodic(TimeUnit.HOURS.toMillis(duration))
 			
 			(context.getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler).schedule(build())

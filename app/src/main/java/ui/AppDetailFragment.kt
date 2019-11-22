@@ -106,7 +106,8 @@ class AppDetailFragment : Fragment() {
 	private suspend fun updateButtonRow() = withContext(Main) {
 		val busy = app.downloading || app.installing || app.updating
 		updateButton.isEnabled = !busy
-		downloadButton.isEnabled = !busy && app.hasUpdates && (!app.cacheFile.isValid() || app.cacheFile?.path?.endsWith(app.updateVersion.toString()) != true)
+		downloadButton.isEnabled = !busy && app.hasUpdates
+				&& (!app.cacheFile.isValid() || app.cacheFile?.path?.endsWith(app.updateVersion.toString()) != true)
 		installButton.isEnabled = !busy && app.cacheFile.isValid() && app.hasUpdates
 		deleteButton.isEnabled = !busy && (app.cacheFile != null || !app.isInstalled())
 		

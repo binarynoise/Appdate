@@ -20,11 +20,12 @@ val globalContext: Application
 		return invoke as Application
 	}
 
-fun getString(@StringRes resId: Int): String = globalContext.getString(resId)
-fun getString(@StringRes resId: Int, vararg formatArgs: Any?): String = globalContext.getString(resId).format(*formatArgs)
+fun getString(@StringRes resId: Int, vararg formatArgs: Any?): String =
+	globalContext.getString(resId, *formatArgs)
 
 @ColorInt
-fun getColor(colorId: Int, theme: Resources.Theme): Int = ResourcesCompat.getColor(globalContext.resources, colorId, theme)
+fun getColor(colorId: Int, theme: Resources.Theme): Int =
+	ResourcesCompat.getColor(globalContext.resources, colorId, theme)
 
 val sharedPreferences: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(globalContext)
 

@@ -127,11 +127,8 @@ class AddAppFragment : Fragment() {
 		try {
 			URL(urlString)
 		} catch (e: MalformedURLException) {
-			log.log(
-				context.getString(R.string.test_failed) + "\n" + getString(
-					R.string.invalid_URL_could_not_add_app
-				), Debug, Logcat, Toast
-			)
+			log.log(context.getString(R.string.test_failed) + "\n" + getString(R.string.invalid_URL_could_not_add_app),
+					Debug, Logcat, Toast)
 			withContext(Main) {
 				testButtonProgressBar?.visibility = INVISIBLE
 				testButton?.isEnabled = true
@@ -184,13 +181,9 @@ class AddAppFragment : Fragment() {
 		packagenamespinner.isEnabled = checked
 		
 		if (!checked) { // clear Spinner
-			val spinnerAdapter = SimpleAdapter(
-				globalContext,
-				ArrayList<Map<String, String>>(),
-				R.layout.layout_add_app_package_name_spinner,
-				arrayOf(PACKAGE_NAME),
-				intArrayOf(R.id.layout_addApp_packageName_spinner_text)
-			)
+			val spinnerAdapter =
+				SimpleAdapter(globalContext, ArrayList<Map<String, String>>(), R.layout.layout_add_app_package_name_spinner,
+						arrayOf(PACKAGE_NAME), intArrayOf(R.id.layout_addApp_packageName_spinner_text))
 			packagenamespinner.adapter = spinnerAdapter
 			
 			packageDetailContainer.visibility = GONE
@@ -215,13 +208,9 @@ class AddAppFragment : Fragment() {
 		
 		if (hints.size == 1) log.log(getString(R.string.request_read_packages), Warn, Logcat, Toast)
 		
-		val spinnerAdapter = SimpleAdapter(
-			context,
-			hints,
-			R.layout.layout_add_app_package_name_spinner,
-			arrayOf(PACKAGE_NAME),
-			intArrayOf(R.id.layout_addApp_packageName_spinner_text)
-		)
+		val spinnerAdapter =
+			SimpleAdapter(context, hints, R.layout.layout_add_app_package_name_spinner, arrayOf(PACKAGE_NAME),
+					intArrayOf(R.id.layout_addApp_packageName_spinner_text))
 		
 		packagenamespinner.adapter = spinnerAdapter
 		

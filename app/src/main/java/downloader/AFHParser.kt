@@ -78,7 +78,7 @@ object AFHParser {
 						
 						view.evaluateJavascript(getHtmlJs) { htmlEscaped ->
 							log.log("done getting html")
-							GlobalScope.launch(Default){
+							GlobalScope.launch(Default) {
 								val html: String? = fromJson(htmlEscaped)
 								val split = html?.split("\"")
 								split?.find { it.startsWith(fidParam) }?.run {
@@ -107,9 +107,8 @@ object AFHParser {
 						exception = IOException(description)
 					}
 					
-					override fun onReceivedHttpError(
-						view: WebView, request: WebResourceRequest, errorResponse: WebResourceResponse
-					) {
+					override fun onReceivedHttpError(view: WebView, request: WebResourceRequest,
+							errorResponse: WebResourceResponse) {
 						super.onReceivedHttpError(view, request, errorResponse)
 						exception = IOException(errorResponse.reasonPhrase)
 						waiter.wake()
@@ -130,10 +129,7 @@ object AFHParser {
 				waiter.sleep() // wait for webview to be constructed and site to load
 			} catch (e: TimeoutException) {
 				throw IOException(
-					getString(R.string.waiting_for_timed_out_sd,
-						"website $updateUrl to load", waiter.timeout
-					), e
-				)
+						getString(R.string.waiting_for_timed_out_sd, "website $updateUrl to load", waiter.timeout), e)
 			}
 			
 			exception?.throwIt()
@@ -157,7 +153,8 @@ object AFHParser {
 			}
 			
 			val downloadUrl = afhResponse.MIRRORS[0].url
-			val version = getVersionFromFileNameOrPath(downloadUrl) ?: throw IOException(getString(R.string.no_version_in_s, updateUrl))
+			val version = getVersionFromFileNameOrPath(downloadUrl)
+				?: throw IOException(getString(R.string.no_version_in_s, updateUrl))
 			lastVersions[updateUrl] = version
 			lastDownloadUrls[updateUrl] = downloadUrl
 			lastCheckedForUpdates[updateUrl] = System.currentTimeMillis()
@@ -198,7 +195,7 @@ object AFHParser {
 		val afhResponse: AFHResponse?
 		
 		try {
-			afhResponse = fromJson(json?.split("\n")?.last()) ?: throw KotlinNullPointerException()
+			afhResponse = fromJson(json?.split("\n")?.last())!!
 		} catch (e: Throwable) {
 			json?.lines()?.forEach {
 				log.log("json: $it", Log.Level.Error, Log.Place.Logcat)
@@ -207,8 +204,7 @@ object AFHParser {
 		}
 		
 		if ("200" != afhResponse.CODE) throw IOException(
-			getString(R.string.afh_returned_code_s_with_message, afhResponse.CODE) + "\n" + afhResponse.MESSAGE
-		)
+				getString(R.string.afh_returned_code_s_with_message, afhResponse.CODE) + "\n" + afhResponse.MESSAGE)
 		return afhResponse
 	}
 }

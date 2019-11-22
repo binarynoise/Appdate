@@ -165,7 +165,10 @@ class InstallRequestActivity : Activity() {
 		fun startRequestInstallPermissionDialog(id: Int) {
 			val args = bundleOf("id" to id, "launch" to true)
 			GlobalScope.launch(Main) {
-				globalContext.startActivity(Intent(globalContext, InstallRequestActivity::class.java).apply {putExtras(args); addFlags(FLAG_ACTIVITY_NEW_TASK)})
+				globalContext.startActivity(Intent(globalContext, InstallRequestActivity::class.java).apply {
+					putExtras(args)
+					addFlags(FLAG_ACTIVITY_NEW_TASK)
+				})
 			}
 		}
 	}
@@ -173,10 +176,11 @@ class InstallRequestActivity : Activity() {
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		log.log("activity created")
-		if(intent.getBooleanExtra("launch", false)) {
+		if (intent.getBooleanExtra("launch", false)) {
 			val id = intent.getIntExtra("id", 0)
 			intent.putExtra("launch", false)
-			val request = Intent(Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES, Uri.parse("package:" + BuildConfig.APPLICATION_ID))
+			val request =
+				Intent(Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES, Uri.parse("package:" + BuildConfig.APPLICATION_ID))
 			startActivityForResult(request, id)
 			log.log("launched dialog")
 		}

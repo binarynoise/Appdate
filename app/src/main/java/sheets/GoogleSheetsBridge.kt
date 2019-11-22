@@ -59,7 +59,6 @@ object GoogleSheetsBridge {
 		scopes.add("https://www.googleapis.com/auth/cloud-platform")
 		scopes.addAll(SheetsScopes.all())
 		return HttpCredentialsAdapter(
-			GoogleCredentials.fromStream(ByteArrayInputStream(Tokens.googleCred.toByteArray())).createScoped(scopes)
-		)
+				GoogleCredentials.fromStream(ByteArrayInputStream(Tokens.googleCred.toByteArray())).createScoped(scopes))
 	}
 }
