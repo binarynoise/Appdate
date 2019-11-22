@@ -52,6 +52,8 @@ class AppDetailFragment : Fragment() {
 		downloadButton.setOnClickListener { onDownloadButtonClick() }
 		installButton.setOnClickListener { onInstallButtonClick() }
 		updateButton.setOnClickListener { onUpdateButtonClick() }
+		if(BuildConfig.DEBUG)
+			debugView.setVisibility(true)
 	}
 	
 	private fun onInstallButtonClick() = GlobalScope.launch {
@@ -92,7 +94,7 @@ class AppDetailFragment : Fragment() {
 	private fun updateUI() = GlobalScope.launch(Main) {
 		name.text = app.installedName
 		icon.setImageDrawable(app.getIcon())
-		debugView.text = app.toPrettyJson()
+		if(BuildConfig.DEBUG) debugView.text = app.toPrettyJson()
 		installedVersion.text = app.installedVersion.toString()
 		availableVersion.text = app.updateVersion?.toString() ?: ""
 		

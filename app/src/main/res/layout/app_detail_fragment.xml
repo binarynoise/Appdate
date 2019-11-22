@@ -275,6 +275,7 @@
 				android:layout_margin="8dp"
 				android:layout_width="wrap_content"
 				android:text="{\n\tJSON\n}"
+				android:visibility="gone"
 				/>
 		</HorizontalScrollView>
 	</LinearLayout>
