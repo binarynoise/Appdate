@@ -21,7 +21,7 @@ class PreferencesFragment : PreferenceFragmentCompat() {
 					title = "Licenses"
 					summary = "View licenses of used libaries"
 					setOnPreferenceClickListener {
-						findNavController().navigate(R.id.nav_pref_licenses)
+						findNavController().navigate(R.id.nav_licenses)
 						true
 					}
 				}

@@ -56,6 +56,7 @@ dependencies {
 	implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 	
 	implementation 'androidx.appcompat:appcompat:1.1.0'
+	implementation 'androidx.cardview:cardview:1.0.0'
 	implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 	implementation 'androidx.core:core-ktx:1.1.0'
 	implementation 'androidx.fragment:fragment-ktx:1.1.0'
@@ -69,6 +70,7 @@ dependencies {
 	implementation 'com.fasterxml.jackson.module:jackson-module-kotlin:2.10.0'
 	implementation 'com.github.topjohnwu.libsu:core:2.5.1'
 	implementation 'com.google.android.material:material:1.2.0-alpha02'
+	implementation 'com.mikepenz:aboutlibraries:7.0.4'
 	implementation 'com.vdurmont:semver4j:3.1.0'
 	implementation 'me.zhanghai.android.materialprogressbar:library:1.6.1'
 	implementation 'net.erdfelt.android:apk-parser:1.1'

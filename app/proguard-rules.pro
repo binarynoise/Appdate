@@ -35,3 +35,9 @@
 -keep class * {
 	@com.fasterxml.jackson.annotation.* *;
 }
+
+# AboutLibrary
+-keep class .R
+-keep class **.R$* {
+    <fields>;
+}

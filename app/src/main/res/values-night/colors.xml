@@ -5,4 +5,12 @@
 	<color name="colorAccent">#832508</color>
 	<color name="foreground">@android:color/primary_text_dark</color>
 	<color name="background">@android:color/background_dark</color>
+	
+	<color name="about_libraries_window_background">#111</color>
+	<color name="about_libraries_card">#333</color>
+	<color name="about_libraries_title_openSource">#ffffffff</color>
+	<color name="about_libraries_text_openSource">#DEDEDE</color>
+	<color name="about_libraries_special_button_openSource">#ffffffff</color>
+	<color name="about_libraries_dividerDark_openSource">#444</color>
+	<color name="about_libraries_dividerLight_openSource">#222</color>
 </resources>
