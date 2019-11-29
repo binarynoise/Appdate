@@ -54,6 +54,7 @@ class AppOverviewFragment : Fragment() {
 	override fun onDestroyView() {
 		super.onDestroyView()
 		refreshCallback = null
+		list.adapter = null
 	}
 	
 	companion object {

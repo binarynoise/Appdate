@@ -5,15 +5,13 @@ import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.OnLifecycleEvent
 import androidx.navigation.NavDeepLinkBuilder
 import com.fasterxml.jackson.annotation.JsonIgnore
 import com.vdurmont.semver4j.Semver
 import com.vdurmont.semver4j.Semver.SemverType.LOOSE
 import java.io.IOException
-import java.util.concurrent.ConcurrentHashMap
+import java.util.*
+import java.util.Collections.newSetFromMap
 import java.util.concurrent.locks.Lock
 import java.util.concurrent.locks.ReentrantLock
 
@@ -96,31 +94,15 @@ class App {
 	var useVersionNumberInsteadOfName: Boolean = false
 	
 	@JsonIgnore
-	private var changeListenerList: MutableMap<Lifecycle, () -> Unit> = ConcurrentHashMap(2)
-	
-	fun addChangeListener(lifecycle: Lifecycle, listener: () -> Unit) {
-		val observer = object : LifecycleObserver {
-			@OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-			fun onDetatch() {
-				changeListenerList.remove(lifecycle)
-			}
-		}
-		lifecycle.addObserver(observer)
-		changeListenerList[lifecycle] = listener
+	private var changeListeners: MutableSet<() -> Unit> = WeakSet()
+	fun addChangeListener(listener: () -> Unit) {
+		changeListeners.add(listener)
 	}
 	
 	@JsonIgnore
-	private var downloadProgressListenerList: MutableMap<Lifecycle, (Int, Int) -> Unit> = ConcurrentHashMap(2)
-	
-	fun addDownloadProgressListener(lifecycle: Lifecycle, listener: (Int, Int) -> Unit) {
-		val observer = object : LifecycleObserver {
-			@OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-			fun onDetatch() {
-				changeListenerList.remove(lifecycle)
-			}
-		}
-		lifecycle.addObserver(observer)
-		downloadProgressListenerList[lifecycle] = listener
+	private var downloadProgressListeners: MutableSet<(Int, Int) -> Unit> = WeakSet()
+	fun addDownloadProgressListener(listener: (Int, Int) -> Unit) {
+		downloadProgressListeners.add(listener)
 	}
 	
 	@Throws(IOException::class)
@@ -155,7 +137,7 @@ class App {
 		downloading = true
 		try {
 			Downloader.download(this) { progress, max ->
-				downloadProgressListenerList.forEach { (_, cb) -> cb(progress, max) }
+				downloadProgressListeners.forEach { cb -> cb(progress, max) }
 			}
 		} finally {
 			downloading = false
@@ -223,7 +205,7 @@ class App {
 	}
 	
 	private fun notifyUiListeners() {
-		changeListenerList.forEach { (_, cb) -> cb() }
+		changeListeners.forEach { cb -> cb() }
 		AppList.save()
 	}
 	
@@ -272,4 +254,8 @@ fun <T> Lock.withTryLock(action: () -> T): Boolean {
 		return true
 	}
 	return false
+}
+
+object WeakSet {
+	operator fun <K> invoke(initalCapacity: Int = 2): MutableSet<K> = newSetFromMap(WeakHashMap<K, Boolean>(initalCapacity))
 }

@@ -39,6 +39,11 @@ class PreferencesFragment : PreferenceFragmentCompat() {
 			setIconSpaceReservedRecursively(false)
 		}
 	}
+	
+	override fun onDestroyView() {
+		preferenceScreen.removeOnClickListenersRecursively()
+		super.onDestroyView()
+	}
 }
 
 private fun PreferenceGroup.setIconSpaceReservedRecursively(iconSpaceReserved: Boolean) {
@@ -46,6 +51,14 @@ private fun PreferenceGroup.setIconSpaceReservedRecursively(iconSpaceReserved: B
 	for (i in 0 until preferenceCount) {
 		val preference = getPreference(i)
 		if (preference is PreferenceGroup) preference.setIconSpaceReservedRecursively(iconSpaceReserved)
+	}
+}
+
+private fun PreferenceGroup.removeOnClickListenersRecursively() {
+	onPreferenceClickListener = null
+	for (i in 0 until preferenceCount) {
+		val preference = getPreference(i)
+		if (preference is PreferenceGroup) preference.removeOnClickListenersRecursively()
 	}
 }
 

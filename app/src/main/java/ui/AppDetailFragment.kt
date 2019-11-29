@@ -32,8 +32,8 @@ class AppDetailFragment : Fragment() {
 		val id = args.id
 		app = AppList.findById(id) ?: run { findNavController().navigateUp(); return }
 		
-		app.addChangeListener(lifecycle) { updateUI() }
-		app.addDownloadProgressListener(lifecycle) { current, size ->
+		app.addChangeListener { updateUI() }
+		app.addDownloadProgressListener { current, size ->
 			GlobalScope.launch(Main) {
 				downloadButton_progressBar?.run {
 					isIndeterminate = current < 1000
