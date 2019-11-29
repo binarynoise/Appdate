@@ -54,6 +54,7 @@ class AppTemplate : Comparable<AppTemplate> {
 		private val appTemplatesOnServer: MutableMap<String, AppTemplate> =
 			Collections.synchronizedMap(HashMap<String, AppTemplate>())
 		
+		@Throws(IOException::class)
 		fun getAvailableAppTemplates(): Map<String, AppTemplate> {
 			donwloadList()
 			

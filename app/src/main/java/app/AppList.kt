@@ -34,20 +34,24 @@ object AppList {
 		load()
 		Notifier.initNotificationGroups()
 		
-		val availableAppTemplates = AppTemplate.getAvailableAppTemplates()
-		withTimeoutOrNull(60_000) {
-			coroutineScope {
-				availableAppTemplates.values.forEach { at ->
-					launch {
-						try {
-							addToList(at)
-						} catch (e: IOException) {
-							log.log(getString(R.string.fetching_templates_failed), e, Warn, Toast, Logcat)
+		try {
+			val availableAppTemplates = AppTemplate.getAvailableAppTemplates()
+			withTimeoutOrNull(60_000) {
+				coroutineScope {
+					availableAppTemplates.values.forEach { at ->
+						launch {
+							try {
+								addToList(at)
+							} catch (e: IOException) {
+								log.log(getString(R.string.fetching_templates_failed), e, Warn, Toast, Logcat)
+							}
 						}
 					}
 				}
-			}
-		} ?: log.log(getString(R.string.fetching_templates_timed_out), Warn, Toast, Logcat)
+			} ?: log.log(getString(R.string.fetching_templates_timed_out), Warn, Toast, Logcat)
+		} catch (e: IOException) {
+			log.log(getString(R.string.fetching_templates_failed), e, Warn, Toast, Logcat)
+		}
 		
 		
 		coroutineScope {
