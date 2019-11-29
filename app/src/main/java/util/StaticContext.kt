@@ -16,8 +16,8 @@ val globalContext: Application
 	@SuppressLint("PrivateApi") get() {
 		val cls = Class.forName("android.app.ActivityThread")
 		val method = cls.getMethod("currentApplication")
-		val invoke = method.invoke(null)
-		return invoke as Application
+		val result = method.invoke(null)
+		return result as Application
 	}
 
 fun getString(@StringRes resId: Int, vararg formatArgs: Any?): String =
