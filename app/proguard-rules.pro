@@ -5,9 +5,6 @@
 # For more details, see
 #   http://developer.android.com/guide/developing/tools/proguard.html
 
--android
--dontpreverify
--optimizations !code/simplification/arithmetic
 -keepattributes SourceFile, LineNumberTable, Exception, *Annotation*, InnerClasses, EnclosingMethod, Signature
 -dontobfuscate
 
@@ -29,7 +26,7 @@
 }
 -keep class de.binarynoise.appdate.classes.json.***
 
--keep class kotlin.Metadata { *; }
+-keep class kotlin.Metadata
 -keep class kotlin.reflect.jvm.internal.impl.load.java.*
 
 -keep class * {
