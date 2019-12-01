@@ -1,4 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+	<string name="about">Über</string>
+	<string name="add_app">App hinzufügen</string>
+	<string name="add_app_description">Hier kannst Du eine App hinzufügen</string>
+	<string name="adding_template_failed_s">Hinzufügen der App %s fehlgeschlagen</string>
+	<string name="afh_returned_code_s_with_message">AFH hat geantwortet mit dem Code %s und der Nachricht %s</string>
+	<string name="app_detail_description">Hier kannst du dir die Details der App ansehen</string>
+	<string name="app_details">App Details</string>
+	<string name="app_is_already_installed">Die App ist bereits installiert</string>
+	<string name="app_up_to_date">Die App ist bereits aktuell</string>
+	<string name="available_version">verfügbare Version</string>
+	<string name="cache_file">Cache File</string>
+	<string name="can_install_app_ss">Appdate kann die App %s istallieren. Die verfügbare Version ist %s</string>
+	<string name="could_not_upload_templates">Konnte die Vorlagen nicht hochladen</string>
+	<string name="download_failed_s">Herunterladen der App %s fehlgeschlagen</string>
+	<string name="download_success">Herunterladen der App %s erfolgreich</string>
+	<string name="fetching_templates_failed">Laden der Vorlagen fehlgeschlagen</string>
+	<string name="fetching_templates_timed_out">Laden der Vorlagen hat zu lange gedauert</string>
+	<string name="fetching_updates_failed">Laden der Aktualisierungen fehlgeschlagen</string>
+	<string name="fetching_updates_failed_s">"Laden der Aktualisierungen für die App %s fehlgeschlagen "</string>
+	<string name="fetching_updates_timed_out">Laden der Aktualisierungen hat zu lange gedauert</string>
+	<string name="found_update_sss">Appdate hat eine Aktualisierung für die App %s gefunden. Die aktuelle Version ist %s. Die verfügbare Version ist %s.</string>
+	<string name="install_failed_s">Installation der App %s fehlgeschlagen</string>
+	<string name="install_not_permitted">App-Installation nicht erlaubt</string>
+	<string name="install_success_s">Installation der App %s erfolgreich</string>
+	<string name="installed_version">installierte Version</string>
+	<string name="invalid_URL_could_not_add_app">Ungültige URL. App konnte nicht hinzugefügt werden</string>
+	<string name="json_parsing_failed">Parsen des JSON fehlgeschlagen</string>
+	<string name="last_updated">zuletzt aktualisiert</string>
+	<string name="licenses">Lizenzen</string>
+	<string name="name">Name</string>
+	<string name="name_should_be_empty">Der Name sollte nicht leer sein</string>
+	<string name="no_network_found_try_later">Keine Internet-Verbindung gefunden. Bitte später nocheinmal versuchen</string>
+	<string name="no_releases_found">Keine Releases gefunden</string>
+	<string name="no_releases_found_for_app_s">Keine Releases für die App %s gefunden</string>
+	<string name="no_releases_found_for_app_under_fid_sd">Keine Releases für die App %s unter der fid %d gefunden</string>
+	<string name="no_version_in_s">Keine Verison in %s</string>
+	<string name="request_read_packages">Bitte erteile die Berechtigung, die installierten Apps abzurufen</string>
+	<string name="s_is_null">%s ist null</string>
+	<string name="settings">Einstellungen</string>
+	<string name="success">Erfolg</string>
+	<string name="test_config">Konfiguration testen</string>
+	<string name="test_failed">Test fehlgeschlagen</string>
+	<string name="test_successful_app_has_version_s">Test erfolgreich! Die App hat die Version %s</string>
+	<string name="update_available">Aktualisierung verfügbar</string>
+	<string name="update_failed">Aktualisieren der App %s fehlgeschlagen</string>
+	<string name="update_for_s">Aktualisierung der App %s</string>
+	<string name="updateUrl">URL</string>
+	<string name="url_should_not_be_empty">Die URL sollte nicht leer sein</string>
+	<string name="version">Verison</string>
+	<string name="waiter_timed_out_waiting_to_be_woken_seconds_f">Der Waiter wurde zu lange nicht geweckt (%f Sekunden)</string>
+	<string name="waiting_for_timed_out_sd">Zu lange auf %s gewartet (%ds)</string>
 </resources>
