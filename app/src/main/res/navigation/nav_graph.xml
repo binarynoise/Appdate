@@ -14,38 +14,12 @@
 		<action
 			android:id="@+id/to_appDetail"
 			app:destination="@id/nav_appDetail"
-			app:enterAnim="@anim/nav_default_enter_anim"
-			app:exitAnim="@anim/nav_default_exit_anim"
 			app:launchSingleTop="true"
-			app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-			app:popExitAnim="@anim/nav_default_pop_exit_anim"
 			/>
 		<action
 			android:id="@+id/to_addApp"
 			app:destination="@id/nav_addApp"
-			app:enterAnim="@anim/nav_default_enter_anim"
-			app:exitAnim="@anim/nav_default_exit_anim"
 			app:launchSingleTop="true"
-			app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-			app:popExitAnim="@anim/nav_default_pop_exit_anim"
-			/>
-		<action
-			android:id="@+id/to_settings"
-			app:destination="@id/nav_settings"
-			app:enterAnim="@anim/nav_default_enter_anim"
-			app:exitAnim="@anim/nav_default_exit_anim"
-			app:launchSingleTop="true"
-			app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-			app:popExitAnim="@anim/nav_default_pop_exit_anim"
-			/>
-		<action
-			android:id="@+id/to_aboutFragment"
-			app:destination="@id/nav_aboutFragment"
-			app:enterAnim="@anim/nav_default_enter_anim"
-			app:exitAnim="@anim/nav_default_exit_anim"
-			app:launchSingleTop="true"
-			app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-			app:popExitAnim="@anim/nav_default_pop_exit_anim"
 			/>
 	</fragment>
 	<fragment
@@ -60,18 +34,13 @@
 			/>
 	</fragment>
 	<fragment
-		android:id="@+id/nav_settings"
+		android:id="@+id/nav_settings_fragment"
 		android:name="de.binarynoise.appdate.PreferencesFragment"
 		android:label="@string/settings"
 		>
 		<action
 			android:id="@+id/to_aboutFragment"
 			app:destination="@id/nav_aboutFragment"
-			app:enterAnim="@anim/nav_default_enter_anim"
-			app:exitAnim="@anim/nav_default_exit_anim"
-			app:launchSingleTop="true"
-			app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-			app:popExitAnim="@anim/nav_default_pop_exit_anim"
 			/>
 		<action
 			android:id="@+id/action_nav_settings_to_nav_pref_licenses"
@@ -95,15 +64,9 @@
 		android:name="de.binarynoise.appdate.AboutFragment"
 		android:label="@string/about"
 		tools:layout="@layout/about_fragment"
-		>
-		<action
-			android:id="@+id/to_licenses"
-			app:destination="@id/nav_licenses"
-			app:enterAnim="@anim/nav_default_enter_anim"
-			app:exitAnim="@anim/nav_default_exit_anim"
-			app:launchSingleTop="true"
-			app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-			app:popExitAnim="@anim/nav_default_pop_exit_anim"
-			/>
-	</fragment>
+		/>
+	<action
+		android:id="@+id/nav_settings"
+		app:destination="@id/nav_settings_fragment"
+		/>
 </navigation>

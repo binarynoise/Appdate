@@ -26,14 +26,12 @@
 			>
 			
 			<androidx.appcompat.widget.AppCompatTextView
-				android:id="@+id/addApp_descriptor"
 				android:layout_height="wrap_content"
 				android:layout_width="match_parent"
 				android:text="@string/add_app_description"
 				/>
 			
 			<com.google.android.material.textfield.TextInputLayout
-				android:id="@+id/addApp_name_float"
 				android:layout_height="wrap_content"
 				android:layout_marginTop="8dp"
 				android:layout_width="match_parent"
@@ -54,7 +52,6 @@
 			</com.google.android.material.textfield.TextInputLayout>
 			
 			<com.google.android.material.textfield.TextInputLayout
-				android:id="@+id/addApp_url_float"
 				android:layout_height="wrap_content"
 				android:layout_marginTop="8dp"
 				android:layout_width="match_parent"
