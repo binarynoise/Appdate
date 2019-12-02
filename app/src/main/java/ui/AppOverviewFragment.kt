@@ -15,6 +15,7 @@ import de.binarynoise.appdate.AppOverviewFragmentDirections.Companion.toAddApp
 import de.binarynoise.appdate.AppOverviewFragmentDirections.Companion.toAppDetail
 import kotlinx.coroutines.*
 import kotlinx.coroutines.Dispatchers.Main
+import java.lang.ref.WeakReference
 import kotlinx.android.synthetic.main.app_overview_fragment.appOverview_list as list
 import kotlinx.android.synthetic.main.app_overview_fragment.appOverview_refreshLayout as refreshLayout
 import kotlinx.android.synthetic.main.app_overview_fragment.floatingActionButton as fab
@@ -86,9 +87,11 @@ class AppOverviewFragment : Fragment() {
 		override fun onBindViewHolder(myListItem: AppOverviewListItem, position: Int) {
 			val app = AppList.forPosition(position)
 			
+			val ref = WeakReference(myListItem)
+			
 			adapter.registerAdapterDataObserver(object : RecyclerView.AdapterDataObserver() {
 				override fun onChanged() {
-					updateUI(app, myListItem)
+					ref.get()?.let { updateUI(app, it) }
 				}
 			})
 			
@@ -113,7 +116,6 @@ class AppOverviewFragment : Fragment() {
 					version.text = app.installedVersion.toString()
 					version.setTextColor(foregroundColor)
 				}
-				
 				
 				if (app.hasUpdates) {
 					version.text = app.updateVersion.toString()
