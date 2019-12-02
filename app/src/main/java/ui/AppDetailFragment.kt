@@ -72,7 +72,7 @@ class AppDetailFragment : Fragment() {
 				log.log(getString(R.string.app_up_to_date), Info, Toast)
 			}
 		} catch (e: IOException) {
-			log.log(getString(R.string.fetching_updates_failed_s), Warn, Toast)
+			log.log(getString(R.string.fetching_updates_failed_s, app.installedName), Warn, Toast)
 		}
 	}
 	
