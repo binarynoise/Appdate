@@ -28,13 +28,6 @@ class AppOverviewFragment : Fragment() {
 				refreshLayout?.isRefreshing = b
 			}
 		}
-		GlobalScope.launch {
-			AppList.load()
-			launch { Notifier.initNotificationGroups() }
-			launch { AppList.checkForUpdates() }
-			launch { Init.checkPermissions() }
-			launch { Init.scheduleBackgroundUpdate() }
-		}
 	}
 	
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -68,6 +61,16 @@ class AppOverviewFragment : Fragment() {
 			AppOverviewFragment.refreshing = refreshing
 			val refreshCallback = refreshCallback
 			refreshCallback?.invoke(refreshing)
+		}
+		
+		init {
+			GlobalScope.launch {
+				AppList.load()
+				launch { Notifier.initNotificationGroups() }
+				launch { AppList.checkForUpdates() }
+				launch { Init.checkPermissions() }
+				launch { Init.scheduleBackgroundUpdate() }
+			}
 		}
 	}
 	
