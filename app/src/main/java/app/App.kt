@@ -9,6 +9,8 @@ import androidx.navigation.NavDeepLinkBuilder
 import com.fasterxml.jackson.annotation.JsonIgnore
 import com.vdurmont.semver4j.Semver
 import com.vdurmont.semver4j.Semver.SemverType.LOOSE
+import de.binarynoise.appdate.Preferences.installAfterDownload
+import kotlinx.coroutines.*
 import java.io.IOException
 import java.util.*
 import java.util.Collections.newSetFromMap
@@ -139,6 +141,8 @@ class App {
 			Downloader.download(this) { progress, max ->
 				downloadProgressListeners.forEach { cb -> cb(progress, max) }
 			}
+			if(cacheFile.isValid() && Preferences[installAfterDownload, false])
+				GlobalScope.launch { install() }
 		} finally {
 			downloading = false
 			if (!cacheFile.isValid()) cacheFile = null
