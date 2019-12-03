@@ -118,127 +118,162 @@
 			</LinearLayout>
 		</LinearLayout>
 		
-		<TableRow
+		<LinearLayout
 			android:layout_height="wrap_content"
 			android:layout_margin="8dp"
 			android:layout_width="match_parent"
+			android:baselineAligned="false"
 			>
 			
-			<androidx.constraintlayout.widget.ConstraintLayout
+			<RelativeLayout
 				android:layout_height="wrap_content"
 				android:layout_weight="1"
-				android:layout_width="wrap_content"
+				android:layout_width="0dp"
+				android:padding="4dp"
 				>
 				
 				<ImageButton
 					android:id="@+id/updateButton"
 					style="?attr/buttonBarButtonStyle"
+					android:layout_centerHorizontal="true"
 					android:layout_height="24dp"
 					android:layout_width="24dp"
 					android:src="@drawable/ic_update_white_24dp"
 					android:tint="@color/foreground"
-					app:layout_constraintBottom_toBottomOf="parent"
-					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toTopOf="parent"
 					tools:ignore="ContentDescription"
 					/>
 				
 				<ProgressBar
 					android:id="@+id/updateButton_progressBar"
 					android:indeterminateOnly="true"
+					android:layout_centerHorizontal="true"
 					android:layout_height="24dp"
 					android:layout_width="24dp"
 					android:visibility="invisible"
-					app:layout_constraintBottom_toBottomOf="parent"
-					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toTopOf="parent"
+					tools:visibility="visible"
 					/>
-			</androidx.constraintlayout.widget.ConstraintLayout>
+				
+				<TextView
+					android:ellipsize="none"
+					android:layout_below="@id/updateButton"
+					android:layout_centerHorizontal="true"
+					android:layout_height="match_parent"
+					android:layout_width="wrap_content"
+					android:text="@string/check_for_updates"
+					android:textAlignment="center"
+					/>
+			</RelativeLayout>
 			
-			<androidx.constraintlayout.widget.ConstraintLayout
+			<RelativeLayout
 				android:layout_height="wrap_content"
 				android:layout_weight="1"
-				android:layout_width="wrap_content"
+				android:layout_width="0dp"
+				android:padding="4dp"
 				>
 				
 				<ImageButton
 					android:id="@+id/downloadButton"
 					style="?attr/buttonBarButtonStyle"
+					android:layout_centerHorizontal="true"
 					android:layout_height="24dp"
 					android:layout_width="24dp"
 					android:src="@drawable/ic_file_download_white_24dp"
 					android:tint="@color/foreground"
-					app:layout_constraintBottom_toBottomOf="parent"
-					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toTopOf="parent"
 					tools:ignore="ContentDescription"
 					/>
 				
-				<me.zhanghai.android.materialprogressbar.MaterialProgressBar
+				<ProgressBar
 					android:id="@+id/downloadButton_progressBar"
 					style="@style/Widget.MaterialProgressBar.ProgressBar"
+					android:indeterminate="true"
+					android:layout_centerHorizontal="true"
 					android:layout_height="24dp"
 					android:layout_width="24dp"
 					android:visibility="invisible"
-					app:layout_constraintBottom_toBottomOf="parent"
-					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toTopOf="parent"
-					app:mpb_setBothDrawables="true"
+					tools:visibility="visible"
 					/>
-			</androidx.constraintlayout.widget.ConstraintLayout>
+				
+				<TextView
+					android:ellipsize="none"
+					android:layout_below="@id/downloadButton"
+					android:layout_centerHorizontal="true"
+					android:layout_height="match_parent"
+					android:layout_width="wrap_content"
+					android:text="@string/download"
+					android:textAlignment="center"
+					/>
+			</RelativeLayout>
 			
-			<androidx.constraintlayout.widget.ConstraintLayout
+			<RelativeLayout
 				android:layout_height="wrap_content"
 				android:layout_weight="1"
-				android:layout_width="wrap_content"
+				android:layout_width="0dp"
+				android:padding="4dp"
 				>
 				
 				<ImageButton
 					android:id="@+id/installButton"
 					style="?attr/buttonBarButtonStyle"
+					android:layout_centerHorizontal="true"
 					android:layout_height="24dp"
 					android:layout_width="24dp"
 					android:src="@drawable/ic_install_update_white_24dp"
 					android:tint="@color/foreground"
-					app:layout_constraintBottom_toBottomOf="parent"
-					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toTopOf="parent"
 					tools:ignore="ContentDescription"
 					/>
 				
 				<ProgressBar
 					android:id="@+id/installButton_progressBar"
 					android:indeterminateOnly="true"
+					android:layout_centerHorizontal="true"
 					android:layout_height="24dp"
 					android:layout_width="24dp"
 					android:visibility="invisible"
-					app:layout_constraintBottom_toBottomOf="parent"
-					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toTopOf="parent"
+					tools:visibility="visible"
 					/>
-			</androidx.constraintlayout.widget.ConstraintLayout>
+				
+				<TextView
+					android:ellipsize="none"
+					android:layout_below="@id/installButton"
+					android:layout_centerHorizontal="true"
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:text="@string/install"
+					android:textAlignment="center"
+					/>
+			</RelativeLayout>
 			
-			<ImageButton
-				android:id="@+id/deleteButton"
-				style="?attr/buttonBarButtonStyle"
-				android:layout_height="24dp"
+			<RelativeLayout
+				android:layout_height="wrap_content"
 				android:layout_weight="1"
-				android:layout_width="24dp"
-				android:src="@drawable/ic_delete_white_24dp"
-				android:tint="@color/foreground"
-				app:layout_constraintBottom_toBottomOf="parent"
-				app:layout_constraintEnd_toEndOf="parent"
-				app:layout_constraintStart_toStartOf="parent"
-				app:layout_constraintTop_toTopOf="parent"
-				tools:ignore="ContentDescription"
-				/>
-		</TableRow>
+				android:layout_width="0dp"
+				android:padding="4dp"
+				>
+				
+				<ImageButton
+					android:id="@+id/deleteButton"
+					style="?attr/buttonBarButtonStyle"
+					android:layout_centerHorizontal="true"
+					android:layout_height="24dp"
+					android:layout_width="24dp"
+					android:src="@drawable/ic_delete_white_24dp"
+					android:tint="@color/foreground"
+					tools:ignore="ContentDescription"
+					/>
+				
+				<TextView
+					android:ellipsize="none"
+					android:layout_below="@id/deleteButton"
+					android:layout_centerHorizontal="true"
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:text="@string/delete"
+					android:textAlignment="center"
+					/>
+			</RelativeLayout>
+		</LinearLayout>
+		
+		
 		
 		<HorizontalScrollView
 			android:layout_height="wrap_content"
@@ -252,6 +287,7 @@
 				android:layout_width="wrap_content"
 				android:text="{\n\tJSON\n}"
 				android:visibility="gone"
+				tools:visibility="visible"
 				/>
 		</HorizontalScrollView>
 	</LinearLayout>
