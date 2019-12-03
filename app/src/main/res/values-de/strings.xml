@@ -12,7 +12,10 @@
 	<string name="available_version">verfügbare Version</string>
 	<string name="cache_file">Cache File</string>
 	<string name="can_install_app_ss">Appdate kann die App %s istallieren. Die verfügbare Version ist %s</string>
+	<string name="check_for_updates">nach Aktua\u00ADlisierungen suchen</string>
 	<string name="could_not_upload_templates">Konnte die Vorlagen nicht hochladen</string>
+	<string name="delete">löschen</string>
+	<string name="download">herunterladen</string>
 	<string name="download_failed_s">Herunterladen der App %s fehlgeschlagen</string>
 	<string name="download_success">Herunterladen der App %s erfolgreich</string>
 	<string name="fetching_templates_failed">Laden der Vorlagen fehlgeschlagen</string>
@@ -21,6 +24,7 @@
 	<string name="fetching_updates_failed_s">"Laden der Aktualisierungen für die App %s fehlgeschlagen "</string>
 	<string name="fetching_updates_timed_out">Laden der Aktualisierungen hat zu lange gedauert</string>
 	<string name="found_update_sss">Appdate hat eine Aktualisierung für die App %s gefunden. Die aktuelle Version ist %s. Die verfügbare Version ist %s.</string>
+	<string name="install">installieren</string>
 	<string name="install_failed_s">Installation der App %s fehlgeschlagen</string>
 	<string name="install_not_permitted">App-Installation nicht erlaubt</string>
 	<string name="install_success_s">Installation der App %s erfolgreich</string>
@@ -31,7 +35,7 @@
 	<string name="licenses">Lizenzen</string>
 	<string name="name">Name</string>
 	<string name="name_should_be_empty">Der Name sollte nicht leer sein</string>
-	<string name="no_network_found_try_later">Keine Internet-Verbindung gefunden. Bitte später nocheinmal versuchen</string>
+	<string name="no_network_found_try_later">Keine Internet-Verbindung gefunden. Bitte später noch einmal versuchen</string>
 	<string name="no_releases_found">Keine Releases gefunden</string>
 	<string name="no_releases_found_for_app_s">Keine Releases für die App %s gefunden</string>
 	<string name="no_releases_found_for_app_under_fid_sd">Keine Releases für die App %s unter der fid %d gefunden</string>
