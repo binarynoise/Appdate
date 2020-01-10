@@ -39,7 +39,7 @@ to add an app to the list of templates.
 
 **Important**: you need to point to the site where you can actually
 download the `.apk` as Appdate scans the `html` for links to these
-files, e.g. for github you need to append `releases`
+files, e.g. for github you need to append `/releases`
 
 ## currently supported
 
