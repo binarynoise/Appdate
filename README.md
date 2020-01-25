@@ -26,10 +26,10 @@ to add an app to the list of templates.
 ## Downloads
 
 - [here at github](https://github.com/binarynoise/Appdate/releases)
-- [at androidfilehost](https://www.androidfilehost.com/?w=files&flid=304124)  
+- [at androidfilehost](https://www.androidfilehost.com/?w=files&flid=304124&sort_by=date&sort_dir=DESC)  
   here you can find the latest builds as I am too lazy to seperate the
   changes and update the git repo
-- [debug builds at afh](https://www.androidfilehost.com/?w=files&flid=304125)
+- [debug builds at afh](https://www.androidfilehost.com/?w=files&flid=304125&sort_by=date&sort_dir=DESC)
 - [at onedrive (release + debug)](https://1drv.ms/u/s!AoZBVRELG0nWc67mGUIalpTtEwI?e=tia9Fh)  
   also latest builds but without version in file name
 
